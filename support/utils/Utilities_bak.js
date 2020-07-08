@@ -6,19 +6,23 @@ class Utilities {
   }
 
   static takeScreenshot(name, failure=false) {
-    if (!name) name = moment().format('YYYY-MM-DDTH:mm:ss');
     const path = './report/screenshot/';
-    if (!fs.existsSync(path)) {
-      fs.mkdirSync(path, { recursive: true });
-    }
-
+    fs.access(path, fs.F_OK, (err) => {
+      if (err) {
+        console.info('File path doesn\'t exists ... Let\'s create!');
+        fs.mkdir(path, { recursive: true }, (err) => {});
+      }
+      // file exists
+    });
     if (failure) {
       name = name + '_fail';
     }
     name = name.replace(/ /g, '_') + '.png';
+    browser.pause(500);
     browser.saveScreenshot( path + name);
-    const data = fs.readFileSync(`${path}/${name}`);
-    allure.addAttachment(name, data, 'image/png');
+    fs.readFile(`${path}/${name}`, function(err, data) {
+      allure.addAttachment(name, data, 'image/png');
+    });
   }
 }
 

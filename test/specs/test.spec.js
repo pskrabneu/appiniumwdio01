@@ -1,6 +1,5 @@
 // For short testing purposes
 import DataProviderComponent from '../pages/utils/data-provider.component';
-import TeamsSfPage from '../pages/teams-sf.page';
 import Page from '../pages/page';
 
 const fsLibrary = require('fs');
@@ -14,7 +13,7 @@ describe('Add Post Code to the Territory', function() {
 
   it('should be1!!', function() {
     const data = '!!!Hello world!!!';
-    const fPath = './property/temp-test/newfile.txt';
+    const fPath = 'test/properties/newfile.txt';
 
     fsLibrary.writeFile(fPath, data, (error) => {
       // In case of a error throw err exception.
@@ -24,7 +23,6 @@ describe('Add Post Code to the Territory', function() {
     });
 
     fsLibrary.readFile(fPath, (error, txtString) => {
-
       if (error) {
         throw err;
       }

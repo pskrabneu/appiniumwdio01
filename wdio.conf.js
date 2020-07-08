@@ -25,45 +25,12 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        './test/specs/**/*spec.js'
     ],
     // Specific suites or tests
     suites: {
         test001: [
             './test/specs/create-postcode-g001.spec.js'
-        ],
-        test002: [
-            './test/specs/create-team-with-members-g002.spec.js'
-        ],
-        test003: [
-            './test/specs/create-lead-g003.spec.js'
-        ],
-        test004: [
-            './test/specs/convert-lead-g004.spec.js'
-        ],
-        test005: [
-            './test/specs/create-account-g005.spec.js'
-        ],
-        test006: [
-            './test/specs/create-account-abregional-g006.spec.js'
-        ],
-        test007: [
-            './test/specs/create-agency-with-client-g007.spec.js'
-        ],
-        test008: [
-            './test/specs/create-opportunity-g008.spec.js'
-        ],
-        test009: [
-            './test/specs/close-opportunity-won-g009.spec.js'
-        ],
-        test010: [
-            './test/specs/credit-control-details-g010.spec.js'
-        ],
-        test011: [
-            './test/specs/xxx-g011.spec.js'
-        ],
-        test012: [
-            './test/specs/xxx-g012.spec.js'
         ],
         login: [
             //'./test/specs/login.success.spec.js',
@@ -96,7 +63,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 4,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -111,7 +78,7 @@ exports.config = {
         //
         browserName: 'chrome',
         'goog:chromeOptions': {
-            args: ['--disable-infobars', '--window-size=1920,1040'],
+            args: ['--disable-infobars', '--window-size=1920,1040', '-incognito'],
         }
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.

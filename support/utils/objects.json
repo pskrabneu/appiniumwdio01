@@ -1,0 +1,13 @@
+{
+  "urlUnderTest": "",
+  "users": {
+    "systemAdmin": {
+      "login": "sysadmin@provar41.com",
+      "password": "password123"
+    },
+    "appiniumAdmin": {
+      "login": "appadmin@provar41.com",
+      "password": "password123"
+    }
+  }
+}
