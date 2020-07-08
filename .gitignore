@@ -1,0 +1,7 @@
+/report/*
+/node_modules/*
+/allure-report/*
+/junit/*
+report.*
+.idea/*
+
