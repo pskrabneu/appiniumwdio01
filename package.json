@@ -4,8 +4,8 @@
   "description": "Run Appinium Test Automation WebdriverIO v6 with Mocha",
   "main": "./node_modules/.bin/wdio",
   "scripts": {
-    "test001": "wdio wdio.conf.js --suite test001",
     "current": "wdio wdio.conf.js --suite currentTest",
+    "test001": "wdio wdio.conf.js --suite test001",
     "temp": "wdio wdio.conf.js --suite testFun",
     "test": "wdio wdio.conf.js",
     "test.sauce": "wdio wdio.saucelabs.conf.js",

@@ -5,6 +5,7 @@ export default class Page {
   static WAITING_SMALL = 2000;
 
   constructor() {
+    this.urlPage = 'url';
     this.appTitle = 'My Page';
     this.pageTitle = 'My Page Title';
     this.webForm0 = 'Web form';

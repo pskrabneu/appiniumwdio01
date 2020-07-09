@@ -40,7 +40,7 @@ exports.config = {
             './test/specs/test.spec.js'
         ],
         currentTest: [
-            './test/specs/create-team-with-members-g002.spec.js'
+            'test/specs/open-home-page.spec.js'
         ]
     },
     // Patterns to exclude.
