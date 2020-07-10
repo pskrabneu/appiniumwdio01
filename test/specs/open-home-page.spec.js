@@ -100,7 +100,6 @@ describe('Open Home Page:', function() {
         'id': 'mouse2',
         'parameters': { 'pointerType': 'mouse' },
         'actions': [
-          // { 'type': 'positionMove', 'duration': 3000, 'x': srcLocationX, 'y': srcLocationY },
           { 'type': 'pointerMove', 'duration': 3000, 'x': srcLocationX + 5, 'y': srcLocationY + 5 },
           { 'type': 'pointerDown', 'button': 0 },
           { 'type': 'pause', 'duration': 3000 },
@@ -115,7 +114,12 @@ describe('Open Home Page:', function() {
     ]);
 
     browser.releaseActions();
-    browser.pause(15000);
+    browser.pause(10000);
+  });
+
+  it('should ', function() {
+
+
   });
 });
 

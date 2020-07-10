@@ -92,6 +92,60 @@ class LightningAppBuilderPage extends Page {
   get destinationPlace() {
     return browser.$('//div[contains(@class, "PlaceholderWrapper")]');
   }
+
+  // "Properties" column
+  takeItemTitle(itemTitle) {
+    const iTitle = browser.$('//span[@class="breadcrumb-item" and @title="' +
+      itemTitle + '"]');
+    return iTitle.getText();
+  }
+
+  // return all properties
+  get propertyList() {
+    return browser.$$('//div[@data-id]');
+  }
+
+  // START SAVE PROCESS
+  // 1. click 'Save' button
+  get clickSaveBtn() {
+    const saveBtn = browser.$('//button[contains(@class, "save")]');
+    saveBtn.click();
+    browser.pause(Page.WAITING_MEDIUM);
+    return LightningAppBuilderPage;
+  }
+
+  // 2. click 'Activate' button
+  get clickActivateBtn() {
+    const activateBtn = browser.$('//div[contains(@class, "modal")]/.' +
+      '//button[contains(@class, "activate")]');
+    activateBtn.click();
+    browser.pause(Page.WAITING_MEDIUM);
+    return LightningAppBuilderPage;
+  }
+
+  // 3. click on 'Lightning Experience' tab
+  clickTab(tabName) {
+    const tab = browser.$('//span[@class="title" and text()="' + tabName + '"]');
+    tab.click();
+    browser.pause(Page.WAITING_SMALL);
+    return LightningAppBuilderPage;
+  }
+
+  // 3.1 click 'Add page to app' button
+  get clickAddPageToAppBtn() {
+    const toApp = browser.$('//div[@class="centerText"]/' +
+      'p[text()="Appinium Admin"]/following-sibling::button');
+    toApp.click();
+  }
+
+  // 3.2 click 'Save' button
+  get clickSaveBtnActivate() {
+    const svBtn = browser.$('//button[contains(@class, "activateButton")' +
+      ' and text()="Save"]');
+    svBtn.click();
+    browser.pause(Page.WAITING_MEDIUM);
+    return LightningAppBuilderPage;
+  }
 }
 
 export default new LightningAppBuilderPage();
