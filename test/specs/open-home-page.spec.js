@@ -116,63 +116,6 @@ describe('Open Home Page:', function() {
 
     browser.releaseActions();
     browser.pause(15000);
-
-    /*    console.log('\nSrc is clickble = ' + src.isExisting() + '\n' +
-        'Dest is clickble = ' + dest.isExisting());*/
-
-    // dran&drop --begin--
-    /*    browser.performActions([
-      {
-        "type": "pointer",
-        "id": "mouse1",
-        "parameters": { "pointerType": "mouse" },
-        "actions": [
-          { "type": "pointerMove", "duration": 0, "x": parseInt(xTotal), "y": parseInt(yTotal)},
-          { "type": "pointerDown", "button": 1},
-          { "type": "pause", "duration": 5000},
-          { "type": "pointerMove", "duration": 500, "origin": "pointer", "x": width , y: 0},
-          { "type": "pointerUp", "button": 1}
-        ]
-      }
-    ]);*/
-
-    // --------------------
-    // do a horizontal swipe by percentage
-    /* const startPercentage = 10;
-    const endPercentage = 90;
-    const anchorPercentage = 50;
-
-    const { width, height } = driver.getWindowSize();
-    const anchor = height * anchorPercentage / 100;
-    const startPoint = width * startPercentage / 100;
-    const endPoint = width * endPercentage / 100;*/
-    /* driver.touchPerform([
-      {
-        action: 'press',
-        options: {
-          x: startPoint,
-          y: anchor,
-        },
-      },
-      {
-        action: 'wait',
-        options: {
-          ms: 100,
-        },
-      },
-      {
-        action: 'moveTo',
-        options: {
-          x: endPoint,
-          y: anchor,
-        },
-      },
-      {
-        action: 'release',
-        options: {},
-      },
-    ]);*/
-    // dran&drop --end--
   });
 });
 
