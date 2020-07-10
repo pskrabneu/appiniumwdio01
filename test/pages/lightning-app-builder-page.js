@@ -76,6 +76,22 @@ class LightningAppBuilderPage extends Page {
     const appTitle = browser.$('//div[@class="flex"]/div[contains(@class, "middle")]');
     return appTitle.getText();
   }
+
+  // 'Search components' search field and return 'Source'
+  searchComponents(comp) {
+    const srchField = browser.$('//input[@type="search"]');
+    srchField.click();
+    srchField.setValue(comp);
+
+    const compSource = browser.$('//span[text()="' + comp + '"]');
+    compSource.waitForDisplayed();
+    return compSource;
+  }
+
+  // destination for drag&drop operation
+  get destinationPlace() {
+    return browser.$('//div[contains(@class, "PlaceholderWrapper")]');
+  }
 }
 
 export default new LightningAppBuilderPage();

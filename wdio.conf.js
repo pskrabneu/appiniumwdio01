@@ -78,7 +78,9 @@ exports.config = {
         //
         browserName: 'chrome',
         'goog:chromeOptions': {
-            args: ['--disable-infobars', '--window-size=1920,1040', '-incognito'],
+            // args: ['--disable-infobars', '--window-size=1920,1040', '-incognito']
+            args: ['--disable-infobars', '--window-size=1800,980'],
+            w3c: true
         }
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.

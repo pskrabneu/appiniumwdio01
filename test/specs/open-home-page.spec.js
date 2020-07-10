@@ -48,6 +48,132 @@ describe('Open Home Page:', function() {
     expect(actualTitle).toEqual(pageAppTitle);
     utilities.takeScreenshot('open_app_builder_page');
   });
+
+  it('should perform Drag&Drop operation', function() {
+    const src = LightningAppBuilderPage.searchComponents('All Media');
+
+    console.log(
+        '\nWindow size width = ' + browser.getWindowSize().width +
+      '\nWindow size height = ' + browser.getWindowSize().height +
+      '\nWindow rect width = ' + browser.getWindowRect().width +
+      '\nWindow rect height = ' + browser.getWindowRect().height);
+
+    // src parameters
+    const srcWidth = src.getSize().width;
+    const srcHeight = src.getSize().height;
+    const srcLocationX = src.getLocation().x;
+    const srcLocationY = src.getLocation().y;
+
+    console.log(
+        '\nSrc size width = ' + srcWidth +
+      '\nSrc size height = ' + srcHeight +
+      '\nSrc location x = ' + srcLocationX +
+      '\nSrc location y = ' + srcLocationY);
+
+    const pageFrames = browser.$$('//iframe');
+    const fr = ArrayOperationsComponent.oneVisible(pageFrames);
+    browser.switchToFrame(fr);
+
+    const dest = LightningAppBuilderPage.destinationPlace;
+
+    // dest parameters
+    const destWidth = dest.getSize().width;
+    const destHeight = dest.getSize().height;
+    const destLocationX = dest.getLocation().x;
+    const destLocationY = dest.getLocation().y;
+
+    console.log(
+        '\nDest size width = ' + destWidth +
+      '\nDest size height = ' + destHeight +
+      '\nDest location x = ' + destLocationX +
+      '\nDest location y = ' + destLocationY);
+
+    browser.switchToParentFrame();
+
+    browser.pause(1000);
+
+    // browser.touchAction -> only with Appium
+    // browser.actions -> is not a function
+    browser.performActions([
+      {
+        'type': 'pointer',
+        'id': 'mouse2',
+        'parameters': { 'pointerType': 'mouse' },
+        'actions': [
+          // { 'type': 'positionMove', 'duration': 3000, 'x': srcLocationX, 'y': srcLocationY },
+          { 'type': 'pointerMove', 'duration': 3000, 'x': srcLocationX + 5, 'y': srcLocationY + 5 },
+          { 'type': 'pointerDown', 'button': 0 },
+          { 'type': 'pause', 'duration': 3000 },
+          // eslint-disable-next-line max-len
+          // { 'type': 'pointerMove', 'duration': 5500, 'origin': 'pointer', 'x': 400, 'y': -200 },
+          // eslint-disable-next-line max-len
+          // { 'type': 'pointerMove', 'duration': 2500, 'origin': 'pointer', 'x': 400, 'y': (destLocationY - srcLocationY) },
+          { 'type': 'pointerMove', 'duration': 2500, 'origin': 'pointer', 'x': 500, 'y': -250 },
+          { 'type': 'pointerUp', 'button': 0 },
+        ],
+      },
+    ]);
+
+    browser.releaseActions();
+    browser.pause(15000);
+
+    /*    console.log('\nSrc is clickble = ' + src.isExisting() + '\n' +
+        'Dest is clickble = ' + dest.isExisting());*/
+
+    // dran&drop --begin--
+    /*    browser.performActions([
+      {
+        "type": "pointer",
+        "id": "mouse1",
+        "parameters": { "pointerType": "mouse" },
+        "actions": [
+          { "type": "pointerMove", "duration": 0, "x": parseInt(xTotal), "y": parseInt(yTotal)},
+          { "type": "pointerDown", "button": 1},
+          { "type": "pause", "duration": 5000},
+          { "type": "pointerMove", "duration": 500, "origin": "pointer", "x": width , y: 0},
+          { "type": "pointerUp", "button": 1}
+        ]
+      }
+    ]);*/
+
+    // --------------------
+    // do a horizontal swipe by percentage
+    /* const startPercentage = 10;
+    const endPercentage = 90;
+    const anchorPercentage = 50;
+
+    const { width, height } = driver.getWindowSize();
+    const anchor = height * anchorPercentage / 100;
+    const startPoint = width * startPercentage / 100;
+    const endPoint = width * endPercentage / 100;*/
+    /* driver.touchPerform([
+      {
+        action: 'press',
+        options: {
+          x: startPoint,
+          y: anchor,
+        },
+      },
+      {
+        action: 'wait',
+        options: {
+          ms: 100,
+        },
+      },
+      {
+        action: 'moveTo',
+        options: {
+          x: endPoint,
+          y: anchor,
+        },
+      },
+      {
+        action: 'release',
+        options: {},
+      },
+    ]);*/
+    // dran&drop --end--
+  });
 });
 
 
