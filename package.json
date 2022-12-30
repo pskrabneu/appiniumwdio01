@@ -27,7 +27,7 @@
   "license": "MIT",
   "dependencies": {
     "@wdio/sync": "^6.0.12",
-    "mocha": "^7.1.1"
+    "mocha": "^10.2.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -39,7 +39,7 @@
     "@wdio/cli": "^6.1.11",
     "@wdio/junit-reporter": "^6.1.9",
     "@wdio/local-runner": "^6.1.11",
-    "@wdio/mocha-framework": "^6.1.8",
+    "@wdio/mocha-framework": "^6.11.0",
     "@wdio/sauce-service": "^6.0.13",
     "@wdio/selenium-standalone-service": "^6.0.12",
     "@wdio/spec-reporter": "^6.1.9",
